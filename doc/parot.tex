@@ -1,0 +1,100 @@
+\documentclass[a4paper,11pt]{article}
+%\documentclass[a4paper,11pt]{report}
+%\documentstyle[authordate1-4]{article}
+\usepackage{listings}           % allows use of external code files eg matlab, fortran etc.
+\usepackage{graphicx}           % graphics package
+\usepackage{float}              % allows figures to float
+\usepackage{wrapfig}            % allows wrapping of figures
+\usepackage{amsmath}
+\usepackage{amssymb}
+%\usepackage{fullpage}          % makes use of whole page
+\usepackage{caption}            % allows captions on pictures
+%\usepackage{subcaption}                % allows subfigures
+\usepackage[breaklinks]{hyperref}               % makes all references into hyperlinks
+\usepackage[all]{hypcap}        % means that hyperlinks to figures show the whole figure (if the figure's above the link it will usuall link to the caption only)
+\usepackage{ifpdf}              % for using metapost pics
+\usepackage{color}              % allows text colouring
+\usepackage{pgf,pgfarrows,pgfnodes,pgfautomata}
+\usepackage{colortbl}
+\usepackage{fancyhdr}           % need to include \pagestyle{fancy}
+\usepackage[round, sort&compress]{natbib}
+
+\newcommand{\doinv}{\ensuremath{^{\textrm{-1}}}}                % create a new command for doing superscript without having to go into math mode, then text mode
+\newcommand{\supt}[1]{\ensuremath{^{\textrm{#1}}}}              % create a new command for doing superscript without having to go into math mode, then text mode
+\newcommand{\subt}[1]{\ensuremath{_{\textrm{#1}}}}              % same for subscript. Alternative way is $^{\textrm{superscript goes here}}$ or use _ for sub
+%\numberwithin{equation}{section}                               % this will number equations as eg.(4.1). For (4.1.1) change section to subsection
+%\numberwithin{figure}{section}                         % this will number equations as eg.(4.1). For (4.1.1) change section to subsection
+\def\clap#1{\hbox to 0pt{\hss#1\hss}}
+\def\mathclap{\mathpalette\mathclapinternal}
+\def\mathclapinternal#1#2{%
+\clap{$\mathsurround=0pt#1{#2}$}%
+}
+\def\mathrlap{\mathpalette\mathrlapinternal}
+\def\mathrlapinternal#1#2{%
+\rlap{$\mathsurround=0pt#1{#2}$}% $
+}
+\def\mathllap{\mathpalette\mathllapinternal}
+\def\mathllapinternal#1#2{%
+\llap{$\mathsurround=0pt#1{#2}$}% $
+}
+
+\allowdisplaybreaks
+
+\linespread{1.3}
+
+\begin{document}
+
+\title{Parent of Origin Generator user manual}
+\maketitle
+
+\noindent
+Permission is granted to copy, distribute and/or modify this document under the terms of the GNU Free Documentation License, Version 3 or any later version published by the Free Software Foundation; with no Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.
+
+The GNU Free Documentation License can be viewed at:
+\begin{verbatim}
+http://www.gnu.org/licenses
+\end{verbatim}
+
+\newpage
+
+\section{Running the Program}
+
+
+
+\section{Program Options}
+
+The following options are available.
+
+	-child           child's dosage file
+
+	-child\_sample    childs sample file
+
+	-mother          mothers dosage file
+
+	-mother\_sample   mothers sample file
+
+	-father          fathers dosage file
+
+	-father\_sample   fathers sample file
+
+	-out             output\_file\_prefix
+
+	-chr             chromosome
+
+	-n\_snp           (optional) number of snps to evaluate at once Default: 100000. Increasing this number dramatically increases memory usage
+
+	-phased          (optional) phased haplotypes in impute2 format provided
+
+	-transmitted     (optional) generate mother's transmitted and untransmitted alleles instead of maternally and paternally inherited alleles of foetus
+
+	-pheno           This option is only valid when the data provided is in mach format. Provides the phenotype to write to the generated sample file. If data is in mach format, this is required
+
+        -no\_print\_sample if the provided data is in oxford format this option will suppress the creation of the sample file. In this case the -child\_sample file should be used as the sample file for the output data
+
+        -minimac         (optional) Specifies that the data is provided in minimac format rather than oxford format
+
+        -interaction     (optional) output genotype file for testing maternal-foetal interaction rather than parent-of-origin
+
+iids should be identical
+
+\end{document}
